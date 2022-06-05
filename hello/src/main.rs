@@ -1,14 +1,27 @@
 mod array;
+mod forloop;
+mod matchflow;
 mod mutability;
+mod rif;
+mod string;
 mod tuple;
 mod variables;
-
+mod whileloop;
+mod structStatement;
 fn main() {
     // variables::run();
     // array::array();
-    tuple::main();
+    // tuple::main();
 
-    mutability::mutability();
+    // mutability::mutability();
+
+    let owl = 
+
+    matchflow::run(1);
+    rif::run();
+    string::run();
+    forloop::run();
+    whileloop::main();
 
     let a = 10;
     let b = 15;

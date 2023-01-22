@@ -2,9 +2,12 @@ use std::io;
 
 fn main() {
     let mut input = String::new();
+
     io::stdin().read_line(&mut input).unwrap();
     let char_vec: Vec<char> = input.chars().collect();
+
     let mut new_char = String::new();
+
     for c in char_vec {
         match c {
             'a' => new_char += "u",

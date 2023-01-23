@@ -25,19 +25,23 @@ impl Server {
                     match stream.read(&mut buffer) {
                         Ok(_) => {
                             println!("Received a request: {}", String::from_utf8_lossy(&buffer));
-                            match Request::try_from(&buffer[..]) {
+                            let response = match Request::try_from(&buffer[..]) {
                                 Ok(request) => {
                                     dbg!(request);
-                                    let response = Response::new(
+                                    Response::new(
                                         StatusCode::Ok,
                                         Some("<h1>this works</h1>".to_string()),
-                                    );
-
-                                    write!(stream, "{}", response);
+                                    )
                                 }
-                                Err(e) => println!("Failed to read from connection: {}", e),
+                                Err(e) => {
+                                    println!("Failed to read from connection: {}", e);
+                                    Response::new(StatusCode::BadRequest, None)
+                                }
+                            };
+
+                            if let Err(e) = response.send(&mut stream) {
+                                println!("Failed to send response {}", e)
                             }
-                            let res: &Result<Request, _> = &buffer[..].try_into();
                         }
                         Err(e) => println!("Failed to read from connection: {}", e),
                     }

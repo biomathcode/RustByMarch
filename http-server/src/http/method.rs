@@ -1,6 +1,7 @@
 use ::std::str::FromStr;
 use std::num::ParseIntError;
 
+#[derive(Debug)]
 pub enum Method {
     GET,
     POST,
@@ -28,8 +29,7 @@ impl FromStr for Method {
             "CONNECT" => Ok(Self::CONNECT),
             "HEAD" => Ok(Self::HEAD),
             _ => Err(MethodError),
-        };
-        unimplemented!()
+        }
     }
 }
 

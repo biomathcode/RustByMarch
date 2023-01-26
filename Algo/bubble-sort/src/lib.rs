@@ -17,6 +17,12 @@ pub fn bubble_sort<T: PartialOrd + Debug>(v: &mut [T]) {
     }
 }
 
+pub fn merge_sort<T: PartialOrd + Debug>(v: &mut Vec<T>) -> Vec<T> {
+    // sort the left half with bubble sort
+    // sort the right half with bubble sort
+    // merge the together
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;

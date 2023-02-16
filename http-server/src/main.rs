@@ -2,7 +2,7 @@
 
 use http::Request;
 use server::Server;
-use std::{default, env};
+use std::env;
 use website_handler::WebsiteHandler;
 
 mod http;

@@ -32,6 +32,7 @@ pub fn raindrops(n: u32) -> String {
 }
 fn factor(n: u32) -> Vec<u32> {
     let mut vec: Vec<u32> = Vec::new();
+
     if n % 3 == 0 {
         vec.push(3)
     } else {
@@ -47,5 +48,7 @@ fn factor(n: u32) -> Vec<u32> {
     } else {
         vec.push(n)
     }
+
+    vec.get(100);
     vec
 }
